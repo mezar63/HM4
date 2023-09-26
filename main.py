@@ -13,7 +13,7 @@ def main_page():
         "<p>Для создания данных базы /setup/"
         "<p>Увидеть кол-во уникальных имен /names/"
         "<p>Увидеть кол-во треков в базе /tracks/"
-        "<p>Увидеть информацию о треках/tracks-sec/"
+        "<p>Увидеть информацию о треках /tracks-sec/"
 
     )
 
@@ -30,7 +30,7 @@ def setups():
 def get_customer_name():
     with sqlite3.connect('flask.db') as conn:
         cur = conn.cursor()
-        cur.execute(""" SELECT first_name FROM customers """)
+        cur.execute("SELECT COUNT(DISTINCT first_name) FROM customers")
         customers = cur.fetchall()
         names_counter = len(customers)
 
